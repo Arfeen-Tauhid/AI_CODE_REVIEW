@@ -2,7 +2,7 @@
 
 **An AI-powered tool to analyze code, suggest improvements, and highlight syntax in real-time.**  
 [![Live Demo](https://img.shields.io/badge/Demo-Live%20Project-green)](https://ai-code-review-eosin.vercel.app)  
-![Project Preview](https://via.placeholder.com/1200x600.png?text=AI+Code+Reviewer+Demo+Preview)  
+![Project Preview](https://github.com/Arfeen-Tauhid/AI_CODE_REVIEW/blob/main/PREVIEW.jpeg)  
 *(Replace with an actual screenshot of your project)*
 
 ## 🚀 Features
