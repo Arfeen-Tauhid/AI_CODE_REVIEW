@@ -32,7 +32,7 @@ function App() {
     setError("");
     setReview("");
     try {
-      const { data } = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/ai/get-review`, { code });
+      const { data } = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL||VITE||VITES}/ai/get-review`, { code });
       setReview(data);
     } catch {
       setError("Failed to fetch code review. Please try again.");
