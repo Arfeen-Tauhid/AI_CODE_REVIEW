@@ -56,12 +56,7 @@ Commit changes (git commit -m 'Add amazing feature')
 Push to branch (git push origin feature/improvement)
 Open a Pull Request
 
-Built with ❤️ by [Your Name]
-📧 Contact: your.email@example.com
-
-### Instructions:
-- Replace `yourusername` and `your.email@example.com` with your actual GitHub username and email address.
-- Update the placeholder image URL with an actual screenshot of your project.
-- Ensure that the links to your GitHub repository and alternative deployments are correct.
+Built with ❤️ by [ARFEEN TAUHID]
+📧 Contact: arfeentauhid09@gmail.com
 
 Feel free to modify any sections to better fit your
