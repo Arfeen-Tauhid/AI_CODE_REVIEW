@@ -18,19 +18,24 @@ function App() {
 
   useEffect(() => {
     prism.highlightAll()
-  }, [])
+  }, [code])
 
-  async function reviewCode() {try{
+  const BASE_URL = import.meta.env.VITE_REACT_APP_BACKEND_BASEURL|| import.meta.env.VITE||import.meta.env.VITES;
+
+  async function reviewCode() {
+    try{
+      if(!BASE_URL){
+        throw new Error("Backend URL is not defined in environment variables.")
+      }
     const response = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL||VITE||VITES}/ai/get-review`, { code } ,{
        headers: {"Content-Type":"application/json",},
-       timeout:30000,
+       timeout:60000,
     })
     setReview(response.data)
   }catch{
-    console.error("API Error:", error);
+    console.error("API Error:",error.message || error);
     throw error;
   }
-
   }
 
   return (
@@ -41,7 +46,7 @@ function App() {
             <Editor
               value={code}
               onValueChange={code => setCode(code)}
-              highlight={code => prism.highlight(code, prism.languages.javascript, "javascript")}
+              highlight={(code) => prism.highlight(code, prism.languages.javascript, "javascript")}
               padding={10}
               style={{
                 fontFamily: '"Fira code", "Fira Mono", monospace',
