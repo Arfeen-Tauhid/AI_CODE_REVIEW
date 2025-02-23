@@ -25,8 +25,15 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
 app.use(express.json());
+
+app.use((req, res, next) => {
+  res.setTimeout(30000, () => {
+    res.status(504).json({ error: "Server timeout" });
+  });
+  next();
+});
+
 app.use('/ai', aiRoutes);
 
 app.get('/', (req, res) => {
