@@ -21,11 +21,13 @@ const corsOptions = {
   },
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
   optionsSuccessStatus: 200,
 };
 
 app.use(cors(corsOptions));
-app.use(express.json());
+app.options('*', cors(corsOptions));
+
 
 app.use((req, res, next) => {
   res.setTimeout(30000, () => {
@@ -34,6 +36,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(express.json());
 app.use('/ai', aiRoutes);
 
 app.get('/', (req, res) => {
