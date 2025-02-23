@@ -20,9 +20,17 @@ function App() {
     prism.highlightAll()
   }, [])
 
-  async function reviewCode() {
-    const response = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL||VITE||VITES}/ai/get-review`, { code })
+  async function reviewCode() {try{
+    const response = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL||VITE||VITES}/ai/get-review`, { code } ,{
+       headers: {"Content-Type":"application/json",},
+       timeout:30000,
+    })
     setReview(response.data)
+  }catch{
+    console.error("API Error:", error);
+    throw error;
+  }
+
   }
 
   return (
