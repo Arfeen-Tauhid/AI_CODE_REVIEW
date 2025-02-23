@@ -16,6 +16,14 @@ const corsOptions = {
   optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
+app.use(cors());
+
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", process.env.FRONTEND_URL1||process.env.FRONTEND_URL2||process.env.FRONTEND_URL3);
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    next();
+});
 app.use(express.json());
 app.use('/ai',aiRoutes)
 app.get('/', (req, res) => {
