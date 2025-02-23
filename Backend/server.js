@@ -11,22 +11,21 @@ const allowedOrigins = [
   process.env.FRONTEND_URL3
 ].filter(Boolean);
 
-const corsOptions = {
-  origin: (origin, callback) => {
+app.use(cors({
+  origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
     }
   },
+  credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true,
-  optionsSuccessStatus: 200,
-};
+}));
 
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
+
+app.options('*', cors());
 
 
 app.use((req, res, next) => {
