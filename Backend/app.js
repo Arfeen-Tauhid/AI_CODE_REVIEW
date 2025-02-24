@@ -32,7 +32,7 @@ const allowedOrigins = [
   });
   
   app.use((req, res, next) => {
-    res.setTimeout(60000, () => {
+    res.setTimeout(120000, () => {
       res.status(504).json({ error: "Server timeout" });
     });
     next();

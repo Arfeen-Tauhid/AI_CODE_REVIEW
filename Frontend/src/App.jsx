@@ -29,7 +29,7 @@ function App() {
       }
     const response = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL||VITE||VITES}/ai/get-review`, { code } ,{
        headers: {"Content-Type":"application/json",},
-       timeout:60000,
+       timeout:120000,
     })
     setReview(response.data)
   }catch{
