@@ -40,6 +40,9 @@ main .left {
   margin: 0;
   background-color: #0c0c0c;
 }
+.code pre{
+  height: 100%;
+}
 
 main .left .review {
   bottom: 1rem;
