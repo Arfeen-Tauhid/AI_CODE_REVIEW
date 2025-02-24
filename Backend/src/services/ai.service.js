@@ -76,11 +76,10 @@ const model = genAI.getGenerativeModel(
 async function generateContent(prompt) {
     try {
         const result = await model.generateContent(prompt);
-        if (result && result.response && typeof result.response.text === 'function') {
-            return await result.response.text();
-        } else {
-            throw new Error("Invalid response format");
-        }
+        setTimeout(()=>{
+            return result.response.text();
+        },30000)
+
     } catch (error) {
         throw error;
     }
