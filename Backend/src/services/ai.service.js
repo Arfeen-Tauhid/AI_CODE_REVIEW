@@ -76,10 +76,7 @@ const model = genAI.getGenerativeModel(
 async function generateContent(prompt) {
     try {
         const result = await model.generateContent(prompt);
-        setTimeout(()=>{
-            return result.response.text();
-        },30000)
-
+        return result.response.text();
     } catch (error) {
         throw error;
     }
